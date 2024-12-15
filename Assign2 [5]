@@ -1,0 +1,103 @@
+Write a menu driven program to find the area of the following shapes use the structures and use pi value as 3.14 
+#include <stdio.h>
+
+
+struct Circle {
+    float radius;
+};
+
+struct Rectangle {
+    float length;
+    float width;
+};
+
+
+struct Triangle {
+    float base;
+    float height;
+};
+
+
+struct Square {
+    float side;
+};
+
+
+float area_of_circle(struct Circle c) {
+    return 3.14 * c.radius * c.radius;
+}
+
+
+float area_of_rectangle(struct Rectangle r) {
+    return r.length * r.width;
+}
+
+
+float area_of_triangle(struct Triangle t) {
+    return 0.5 * t.base * t.height;
+}
+
+
+float area_of_square(struct Square s) {
+    return s.side * s.side;
+}
+
+int main() {
+    int choice;
+    
+    do {
+        
+        printf("\nMenu:\n");
+        printf("1. Area of Circle\n");
+        printf("2. Area of Rectangle\n");
+        printf("3. Area of Triangle\n");
+        printf("4. Area of Square\n");
+        printf("5. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        
+        switch (choice) {
+            case 1: {
+                
+                struct Circle c;
+                printf("Enter radius of the circle: ");
+                scanf("%f", &c.radius);
+                printf("Area of Circle: %.2f\n", area_of_circle(c));
+                break;
+            }
+            case 2: {
+                
+                struct Rectangle r;
+                printf("Enter length and width of the rectangle: ");
+                scanf("%f %f", &r.length, &r.width);
+                printf("Area of Rectangle: %.2f\n", area_of_rectangle(r));
+                break;
+            }
+            case 3: {
+                
+                struct Triangle t;
+                printf("Enter base and height of the triangle: ");
+                scanf("%f %f", &t.base, &t.height);
+                printf("Area of Triangle: %.2f\n", area_of_triangle(t));
+                break;
+            }
+            case 4: {
+                
+                struct Square s;
+                printf("Enter side of the square: ");
+                scanf("%f", &s.side);
+                printf("Area of Square: %.2f\n", area_of_square(s));
+                break;
+            }
+            case 5:
+                
+                printf("Exiting the program...\n");
+                break;
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+        
+    } while (choice != 5);
+    
+    return 0;
+}
