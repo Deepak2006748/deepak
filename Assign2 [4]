@@ -1,0 +1,33 @@
+leetcode problems:jewels and stone
+#include <stdio.h>
+#include <string.h>
+
+int numJewelsInStones(char * jewels, char * stones) {
+    int count = 0;
+    
+    int jewelFlags[128] = {0};
+
+    
+    for (int i = 0; jewels[i] != '\0'; i++) {
+        jewelFlags[jewels[i]] = 1;
+    }
+
+    
+    for (int i = 0; stones[i] != '\0'; i++) {
+        if (jewelFlags[stones[i]] == 1) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+int main() {
+    char jewels[] = "aA";
+    char stones[] = "aAAbbbb";
+
+    int result = numJewelsInStones(jewels, stones);
+    printf("The number of jewels in stones: %d\n", result);
+
+    return 0;
+}
