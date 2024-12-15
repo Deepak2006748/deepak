@@ -1,0 +1,29 @@
+Infosys spring board - beginners arena - unit digit of a Fibonacci number 
+#include <stdio.h>
+int fibonacci_last_digit(int n) {
+    
+    n = n % 60;
+    
+    int fib[60] = {0, 1}; 
+
+   
+    for (int i = 2; i < 60; i++) {
+        fib[i] = (fib[i - 1] + fib[i - 2]) % 10;
+    }
+
+    
+    return fib[n];
+}
+
+int main() {
+    int n;
+    
+    
+    printf("Enter the position of the Fibonacci number: ");
+    scanf("%d", &n);
+
+    
+    printf("The unit digit of Fibonacci number at position %d is: %d\n", n, fibonacci_last_digit(n));
+
+    return 0;
+}
