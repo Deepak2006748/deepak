@@ -1,0 +1,29 @@
+Write a c program to demonstrate the usuage of unions which manages two integer values ,x and y 
+#include <stdio.h>
+
+
+union IntValues {
+    int x;
+    int y;
+};
+
+int main() {
+    
+    union IntValues values;
+
+   
+    values.x = 10;
+    printf("Value of x: %d\n", values.x);
+
+    
+    values.y = 20;
+    printf("Value of y: %d\n", values.y);
+    printf("Value of x after assigning to y: %d\n", values.x);
+
+    
+    values.x = 30;
+    printf("Value of x after reassigning: %d\n", values.x);
+    printf("Value of y after x is reassigned: %d\n", values.y);
+
+    return 0;
+}
